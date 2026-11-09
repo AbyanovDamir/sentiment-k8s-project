@@ -1,0 +1,6 @@
+Sentiment API | minikube-report | 2026-11-09T09:46:12+00:00
+$ python3 load.py http://192.168.58.2:30373 180
+sentiment-667977877f-jnxs4: 1055
+sentiment-667977877f-nsjhv: 971
+sentiment-667977877f-zsfsk: 996
+HTTP successes: 3022, errors: 79

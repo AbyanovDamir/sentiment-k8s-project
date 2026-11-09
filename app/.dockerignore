@@ -1,0 +1,5 @@
+target/*
+!target/sentiment.jar
+evidence/
+.git/
+*.log

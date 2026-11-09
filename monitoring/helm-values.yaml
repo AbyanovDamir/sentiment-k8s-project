@@ -1,0 +1,37 @@
+alertmanager:
+  enabled: false
+defaultRules:
+  create: false
+nodeExporter:
+  enabled: false
+kubeApiServer:
+  enabled: false
+kubelet:
+  enabled: false
+coreDns:
+  enabled: false
+kubeEtcd:
+  enabled: false
+kubeControllerManager:
+  enabled: false
+kubeScheduler:
+  enabled: false
+kubeProxy:
+  enabled: false
+prometheusOperator:
+  tls:
+    enabled: false
+  admissionWebhooks:
+    enabled: false
+grafana:
+  defaultDashboardsEnabled: false
+  admin:
+    existingSecret: sentiment-grafana-admin
+  sidecar:
+    dashboards:
+      searchNamespace: ALL
+prometheus:
+  prometheusSpec:
+    retention: 1d
+    resources:
+      requests: {cpu: 100m, memory: 128Mi}

@@ -1,0 +1,10 @@
+HPA timeline during the 180 s test | minikube-report
+Source: kubectl get hpa, captured every 15 s during load
+
+NAME        REFERENCE              TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+sentiment   Deployment/sentiment   cpu: 316%/60%   3         6         3          90m
+2026-11-09T09:44:15+00:00
+NAME        REFERENCE              TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+sentiment   Deployment/sentiment   cpu: 316%/60%   3         6         6          91m
+2026-11-09T09:44:41+00:00
+

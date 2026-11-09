@@ -1,0 +1,16 @@
+VirtualBox VM | minikube-report | 2026-11-09T08:03:55+00:00
+$ minikube version
+minikube version: v1.39.0
+commit: 7a9f6a841470a207de8cf4bafcccee0969d8ba10
+$ kubectl version --client
+Client Version: v1.37.0
+Kustomize Version: v5.8.1
+$ docker --version
+Docker version 29.1.3, build 29.1.3-0ubuntu3~24.04.2
+$ helm version --short
+v3.19.0+g3d8990f
+$ nproc; free -m
+2
+               total        used        free      shared  buff/cache   available
+Mem:            5902        1315        1530           1        3322        4587
+Swap:              0           0           0

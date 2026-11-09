@@ -1,0 +1,27 @@
+2026-11-09T09:42:27+00:00
+NAME        REFERENCE              TARGETS              MINPODS   MAXPODS   REPLICAS   AGE
+sentiment   Deployment/sentiment   cpu: <unknown>/60%   3         6         3          89m
+2026-11-09T09:42:50+00:00
+NAME        REFERENCE              TARGETS              MINPODS   MAXPODS   REPLICAS   AGE
+sentiment   Deployment/sentiment   cpu: <unknown>/60%   3         6         3          89m
+2026-11-09T09:43:07+00:00
+NAME        REFERENCE              TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+sentiment   Deployment/sentiment   cpu: 31%/60%   3         6         3          89m
+2026-11-09T09:43:26+00:00
+NAME        REFERENCE              TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+sentiment   Deployment/sentiment   cpu: 31%/60%   3         6         3          90m
+2026-11-09T09:43:49+00:00
+NAME        REFERENCE              TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+sentiment   Deployment/sentiment   cpu: 316%/60%   3         6         3          90m
+2026-11-09T09:44:15+00:00
+NAME        REFERENCE              TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+sentiment   Deployment/sentiment   cpu: 316%/60%   3         6         6          91m
+2026-11-09T09:44:41+00:00
+NAME        REFERENCE              TARGETS              MINPODS   MAXPODS   REPLICAS   AGE
+sentiment   Deployment/sentiment   cpu: <unknown>/60%   3         6         6          91m
+2026-11-09T09:45:02+00:00
+NAME        REFERENCE              TARGETS              MINPODS   MAXPODS   REPLICAS   AGE
+sentiment   Deployment/sentiment   cpu: <unknown>/60%   3         6         6          91m
+2026-11-09T09:45:21+00:00
+NAME        REFERENCE              TARGETS              MINPODS   MAXPODS   REPLICAS   AGE
+sentiment   Deployment/sentiment   cpu: <unknown>/60%   3         6         6          92m

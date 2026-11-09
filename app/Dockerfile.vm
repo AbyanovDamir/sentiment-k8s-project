@@ -1,0 +1,14 @@
+FROM maven:3.9-eclipse-temurin-21 AS jre
+RUN jlink --add-modules java.se,jdk.crypto.ec,jdk.unsupported,jdk.management,jdk.zipfs \
+    --strip-debug --no-header-files --no-man-pages --compress=zip-6 --output /rootfs/runtime \
+    && mkdir -m 1777 /rootfs/tmp \
+    && find /rootfs/runtime -type f -exec ldd {} + 2>/dev/null \
+       | awk '{for(i=1;i<=NF;i++) if ($i ~ /^\/(usr\/)?lib/) print $i}' \
+       | sort -u | xargs -r cp -L --parents -t /rootfs
+
+FROM scratch
+COPY --from=jre /rootfs/ /
+COPY target/sentiment.jar /app/app.jar
+USER 10001
+EXPOSE 8080
+ENTRYPOINT ["/runtime/bin/java", "-Xmx128m", "-XX:ActiveProcessorCount=2", "-XX:TieredStopAtLevel=1", "-jar", "/app/app.jar"]

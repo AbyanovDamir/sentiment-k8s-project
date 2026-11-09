@@ -1,0 +1,8 @@
+Sentiment API | minikube-report | 2026-11-09T09:42:43+00:00
+$ curl -H "Host: sentiment.local" http://192.168.58.2:30373/api/sentiment?text=hello
+hello      {"sentiment":"positive"}
+terrible   {"sentiment":"negative"}
+table      {"sentiment":"neutral"}
+$ kubectl get endpointslice -l kubernetes.io/service-name=sentiment
+NAME              ADDRESSTYPE   PORTS   ENDPOINTS                           AGE
+sentiment-dwx4x   IPv4          8080    10.244.0.8,10.244.0.9,10.244.0.14   89m

@@ -1,0 +1,19 @@
+Sentiment API | minikube-report | 2026-11-09T08:41:32+00:00
+$ minikube version; minikube status; kubectl get nodes
+minikube version: v1.39.0
+commit: 7a9f6a841470a207de8cf4bafcccee0969d8ba10
+sentiment-lab
+type: Control Plane
+host: Running
+kubelet: Running
+apiserver: Running
+kubeconfig: Configured
+
+sentiment-lab-m02
+type: Worker
+host: Running
+kubelet: Running
+
+NAME                STATUS   ROLES           AGE   VERSION
+sentiment-lab       Ready    control-plane   31m   v1.37.0
+sentiment-lab-m02   Ready    <none>          18m   v1.37.0

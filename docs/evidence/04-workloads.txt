@@ -1,0 +1,14 @@
+Sentiment API | minikube-report | 2026-11-09T09:42:54+00:00
+$ kubectl -n sentiment get deploy,pods,svc,ingress,hpa
+NAME        READY   UP-TO-DATE   AVAILABLE   AGE
+sentiment   3/3     3            3           89m
+NAME                         READY   STATUS    RESTARTS   AGE   IP            NODE            NOMINATED NO
+sentiment-667977877f-jnxs4   1/1     Running   0          28m   10.244.0.8    sentiment-lab   <none>      
+sentiment-667977877f-nsjhv   1/1     Running   0          20m   10.244.0.9    sentiment-lab   <none>      
+sentiment-667977877f-zsfsk   1/1     Running   0          17m   10.244.0.14   sentiment-lab   <none>      
+NAME                                            TYPE           CLUSTER-IP       EXTERNAL-IP      PORT(S)  
+service/sentiment                               LoadBalancer   10.105.153.124   10.105.153.124   80:30373/
+NAME                                  CLASS   HOSTS             ADDRESS   PORTS   AGE
+ingress.networking.k8s.io/sentiment   nginx   sentiment.local             80      89m
+NAME                                            REFERENCE              TARGETS        MINPODS   MAXPODS   
+horizontalpodautoscaler.autoscaling/sentiment   Deployment/sentiment   cpu: 31%/60%   3         6         

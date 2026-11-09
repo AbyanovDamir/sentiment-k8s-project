@@ -1,0 +1,14 @@
+Helm upgrade result | minikube-report
+Release "sentiment-monitor" has been upgraded. Happy Helming!
+NAME: sentiment-monitor
+LAST DEPLOYED: Mon Nov  9 09:45:35 2026
+NAMESPACE: sentiment
+STATUS: deployed
+REVISION: 3
+
+Workload manifests:
+k8s/service-monitor.yaml:kind: ServiceMonitor
+k8s/service-monitor.yaml:  name: sentiment
+k8s/service-monitor.yaml:      path: /actuator/prometheus
+k8s/dashboard.yaml:kind: ConfigMap
+k8s/dashboard.yaml:  name: sentiment-dashboard

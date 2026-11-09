@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sentiment
+  labels: {app: sentiment}
+spec:
+  type: LoadBalancer
+  selector: {app: sentiment}
+  ports:
+    - {name: http, port: 80, targetPort: http}
