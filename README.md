@@ -55,13 +55,17 @@ kubectl --context sentiment-lab -n sentiment get secret sentiment-grafana-admin 
   -o jsonpath='{.data.admin-password}' | base64 -d
 ```
 
-Откройте [Sentiment API в Grafana](http://localhost:3000/d/sentiment-lab). Дашборд настроен на CPU, RPS, p95 и готовые реплики. ServiceMonitor запрашивает `/actuator/prometheus` каждые 15 секунд. На ВМ подтверждены метрики Actuator и установка Helm-релиза. Дашборд с данными Prometheus остался без подтверждения из-за тайм-аутов API Kubernetes.
+Откройте [Sentiment API в Grafana](http://localhost:3000/d/sentiment-lab-verified). Дашборд настроен на CPU, RPS, p95 и число реплик, чьи цели сбора имеют статус UP. ServiceMonitor запрашивает `/actuator/prometheus` каждые 15 секунд. Prometheus собирает метрики приложения через ServiceMonitor. Дашборд Grafana подтверждён с данными CPU, частоты запросов, задержки p95 и числа целей UP.
+
+На учебной ВМ Grafana хранит временную базу в памяти и загружает из комплекта плагинов источник Prometheus. После пересоздания пода дашборд восстанавливается из JSON через ConfigMap.
 
 ## Материалы сдачи
 
 - [Отчёт PDF](docs/report.pdf) и [презентация PowerPoint](docs/presentation.pptx)
 - [Схема архитектуры](docs/architecture.png)
 - [Два узла Ready](docs/screenshots/01-cluster.png), [размер образа](docs/screenshots/02-image.png), [проверка API](docs/screenshots/03-api.png), [развёртывание](docs/screenshots/04-workloads.png), [масштабирование](docs/screenshots/06-hpa.png)
+- [Скрипт установки Minikube](docs/screenshots/10-install-script.png), [код REST-эндпоинта](docs/screenshots/11-endpoint-source.png), [Deployment](docs/screenshots/12-deployment-yaml.png), [Service и Ingress](docs/screenshots/13-routing-yaml.png), [HPA YAML](docs/screenshots/14-hpa-yaml.png)
+- [Цели Prometheus](docs/screenshots/09-prometheus-targets.png), [дашборд Grafana](docs/screenshots/08-grafana.png), [поды мониторинга](docs/screenshots/15-monitoring-pods.png)
 - [Все скриншоты](docs/screenshots/) и [вывод команд](docs/evidence/)
 
 ![Масштабирование HPA под нагрузкой](docs/screenshots/06-hpa.png)

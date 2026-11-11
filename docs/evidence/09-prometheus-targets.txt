@@ -1,0 +1,26 @@
+[
+  {
+    "pod": "sentiment-667977877f-t54mx",
+    "health": "up",
+    "scrapeUrl": "http://10.244.1.3:8080/actuator/prometheus",
+    "lastScrape": "2026-11-09T15:05:03.660765663Z"
+  },
+  {
+    "pod": "sentiment-667977877f-bzjhx",
+    "health": "up",
+    "scrapeUrl": "http://10.244.1.7:8080/actuator/prometheus",
+    "lastScrape": "2026-11-09T15:05:03.756862257Z"
+  },
+  {
+    "pod": "sentiment-667977877f-p67hz",
+    "health": "up",
+    "scrapeUrl": "http://10.244.0.9:8080/actuator/prometheus",
+    "lastScrape": "2026-11-09T15:05:06.127521581Z"
+  },
+  {
+    "pod": "sentiment-667977877f-knwxn",
+    "health": "up",
+    "scrapeUrl": "http://10.244.1.2:8080/actuator/prometheus",
+    "lastScrape": "2026-11-09T15:04:55.699206755Z"
+  }
+]

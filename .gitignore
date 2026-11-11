@@ -1,0 +1,10 @@
+target/
+*.class
+*.jar
+.idea/
+*.iml
+.vscode/
+minikube-linux-*
+*.log
+/evidence/
+__pycache__/

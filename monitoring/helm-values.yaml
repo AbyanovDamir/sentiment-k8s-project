@@ -24,6 +24,24 @@ prometheusOperator:
   admissionWebhooks:
     enabled: false
 grafana:
+  persistence:
+    inMemory:
+      enabled: true
+      sizeLimit: 128Mi
+  env:
+    GF_PLUGINS_PREINSTALL_DISABLED: "true"
+    GF_PLUGINS_DISABLE_PLUGINS: canvas,cloudwatch,elasticsearch,grafana-postgresql-datasource,grafana-pyroscope-datasource,influxdb,jaeger,loki,mssql,mysql,opentsdb,stackdriver,tempo,zipkin
+    GF_ANALYTICS_CHECK_FOR_UPDATES: "false"
+    GF_ANALYTICS_CHECK_FOR_PLUGIN_UPDATES: "false"
+  startupProbe:
+    httpGet: {path: /api/health, port: grafana}
+    periodSeconds: 10
+    timeoutSeconds: 8
+    failureThreshold: 80
+  readinessProbe:
+    timeoutSeconds: 8
+  resources:
+    requests: {cpu: 100m, memory: 128Mi}
   defaultDashboardsEnabled: false
   admin:
     existingSecret: sentiment-grafana-admin

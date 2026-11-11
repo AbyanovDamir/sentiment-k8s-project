@@ -1,6 +1,6 @@
 {
-  "uid": "sentiment-lab",
-  "title": "Sentiment API",
+  "uid": "sentiment-lab-verified",
+  "title": "Sentiment API — мониторинг",
   "schemaVersion": 39,
   "version": 1,
   "refresh": "10s",
@@ -60,7 +60,7 @@
     {
       "id": 3,
       "type": "timeseries",
-      "title": "Готовые реплики",
+      "title": "Реплики со сбором метрик",
       "gridPos": {
         "x": 0,
         "y": 9,
@@ -76,8 +76,8 @@
       "targets": [
         {
           "refId": "A",
-          "expr": "kube_deployment_status_replicas_available{namespace=\"sentiment\",deployment=\"sentiment\"}",
-          "legendFormat": "{{deployment}}"
+          "expr": "count(up{job=\"sentiment\",namespace=\"sentiment\"} == 1)",
+          "legendFormat": "Цели UP"
         }
       ]
     },

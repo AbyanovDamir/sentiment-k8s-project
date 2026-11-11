@@ -1,0 +1,43 @@
+Sentiment API | minikube-report | 2026-11-09T14:54:37+00:00
+
+$ nl -ba k8s/deployment.yaml
+     1	apiVersion: apps/v1
+     2	kind: Deployment
+     3	metadata:
+     4	  name: sentiment
+     5	spec:
+     6	  replicas: 3
+     7	  selector:
+     8	    matchLabels: {app: sentiment}
+     9	  template:
+    10	    metadata:
+    11	      labels: {app: sentiment}
+    12	    spec:
+    13	      containers:
+    14	        - name: sentiment
+    15	          image: sentiment-app:1.0.0
+    16	          imagePullPolicy: Never
+    17	          env:
+    18	            - name: HOSTNAME
+    19	              valueFrom:
+    20	                fieldRef: {fieldPath: metadata.name}
+    21	          ports:
+    22	            - {name: http, containerPort: 8080}
+    23	          resources:
+    24	            requests: {cpu: 50m, memory: 128Mi}
+    25	            limits: {cpu: 500m, memory: 256Mi}
+    26	          startupProbe:
+    27	            httpGet: {path: /actuator/health, port: http}
+    28	            periodSeconds: 5
+    29	            timeoutSeconds: 5
+    30	            failureThreshold: 80
+    31	          readinessProbe:
+    32	            httpGet: {path: /actuator/health, port: http}
+    33	            periodSeconds: 5
+    34	            timeoutSeconds: 5
+    35	          livenessProbe:
+    36	            httpGet: {path: /actuator/health, port: http}
+    37	            periodSeconds: 10
+    38	            timeoutSeconds: 5
+    39	            failureThreshold: 6
+

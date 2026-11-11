@@ -1,0 +1,16 @@
+Sentiment monitoring | minikube-report | 2026-11-10T11:41:57+00:00
+
+$ curl http://10.244.0.17:3000/api/health
+{
+  "database": "ok",
+  "version": "13.3.0",
+  "commit": "6f8ce3c693b493043ebcd4787566d2b6b118b0f0"
+}
+
+$ curl http://10.244.1.6:9090/-/ready
+Prometheus Server is Ready.
+
+$ ps -C grafana,prometheus -o comm,stat,etime
+COMMAND         STAT     ELAPSED
+prometheus      Ssl     20:45:13
+grafana         Ssl     02:50:29

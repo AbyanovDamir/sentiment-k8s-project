@@ -1,0 +1,21 @@
+Sentiment API | minikube-report | 2026-11-09T14:54:28+00:00
+
+$ nl -ba scripts/install-minikube.sh
+     1	#!/usr/bin/env bash
+     2	set -euo pipefail
+     3	version=${MINIKUBE_VERSION:-v1.39.0}
+     4	case "$(uname -m)" in
+     5	  x86_64) arch=amd64 ;;
+     6	  aarch64|arm64) arch=arm64 ;;
+     7	  *) printf 'Unsupported architecture: %s\n' "$(uname -m)" >&2; exit 1 ;;
+     8	esac
+     9	tmp=$(mktemp -d)
+    10	trap 'rm -f "$tmp/minikube" "$tmp/minikube.sha256"; rmdir "$tmp"' EXIT
+    11	url="https://storage.googleapis.com/minikube/releases/$version/minikube-linux-$arch"
+    12	curl -fsSL "$url" -o "$tmp/minikube"
+    13	curl -fsSL "$url.sha256" -o "$tmp/minikube.sha256"
+    14	read -r expected _ < <(cat "$tmp/minikube.sha256"; echo)
+    15	printf '%s  %s\n' "$expected" "$tmp/minikube" | sha256sum --check -
+    16	install -Dm755 "$tmp/minikube" "$HOME/.local/bin/minikube"
+    17	"$HOME/.local/bin/minikube" version
+

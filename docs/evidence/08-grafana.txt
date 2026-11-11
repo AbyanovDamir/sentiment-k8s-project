@@ -1,0 +1,21 @@
+{
+  "dashboard": "sentiment-lab-verified",
+  "panelQueriesVerified": 4,
+  "targets": [
+    {
+      "pod": "sentiment-667977877f-bzjhx",
+      "health": "up",
+      "lastScrape": "2026-11-10T11:57:40.935569436Z"
+    },
+    {
+      "pod": "sentiment-667977877f-6r9mg",
+      "health": "up",
+      "lastScrape": "2026-11-10T11:57:35.146644596Z"
+    },
+    {
+      "pod": "sentiment-667977877f-t54mx",
+      "health": "up",
+      "lastScrape": "2026-11-10T11:57:40.841342983Z"
+    }
+  ]
+}
